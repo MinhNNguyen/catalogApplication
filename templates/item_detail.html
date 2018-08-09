@@ -1,0 +1,14 @@
+{% extends "main.html" %}
+{% block content %}
+	<section>
+		<h2> {{item.name}} </h3>
+		<p> {{item.description}} </p>
+		<form id='' action='' method='post'>
+			{% if 'username' in session %}
+				<input type="submit" name="action" value="Update" />
+				<input type="submit" name="action" value="Delete" />
+			{% endif %}
+			<input type="submit" name="action" value="Extract JSON" />
+		</form>
+	</section>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "main.html" %}
+{% block content %}
+<form id='login' action='' method='post'>
+	<secion>
+		{% if 'username' in session %}
+		<fieldset >
+			<legend>Edit Item</legend>
+			<input type='hidden' name='submitted' id='submitted' value='1'/>
+			<label for='name'>Name:</label>
+			<input type='text' name='name' id='name' value='' maxlength="50" />
+			<br>
+			<label for='description'>Description:</label>
+			<input type='text' name='description' id='description' value='' maxlength="500" />
+			<br>
+			<label for="cat">Category:</label>
+			<select name="cat">
+			{% for cat in categories %}
+				<option value='{{cat.name}}'> {{ cat.name }} </strong> </option>
+			{% endfor %}
+			</select>
+			<br>
+			<input type='submit' name='Submit' value='Submit' />
+		</fieldset>
+		{% else %}
+			<p> Please log in to see this page</p>
+		{% endif %} 
+	</secion>
+</form>
+{% endblock %}

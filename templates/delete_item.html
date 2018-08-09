@@ -1,0 +1,16 @@
+{% extends "main.html" %}
+{% block content %}
+<form id='delete' action='' method='post'>
+	<secion>
+		{% if 'username' in session %}
+		<fieldset>
+			<legend>Delete Item</legend>
+			<p>Are you sure you want to delete this item?</p>
+			<input type='submit' name='Submit' value='Submit' />
+		</fieldset>
+		{% else %}
+			<p> Please log in to see this page</p>
+		{% endif %} 
+	</secion>
+</form>
+{% endblock %}

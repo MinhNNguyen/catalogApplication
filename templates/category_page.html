@@ -1,0 +1,9 @@
+{% extends "main.html" %}
+{% block content %}
+	<section>
+		<h2>Categories:</h2>
+		{% for item in items%}
+			<a href= "{{ url_for('item_page', cat_name = item.get_cat_name(), item_name = item.name ) }}"><p>{{ item.name }} </p></a>
+		{% endfor %}
+	</section>
+{% endblock %}

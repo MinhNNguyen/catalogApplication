@@ -1,0 +1,18 @@
+{% extends "main.html" %}
+{% block content %}
+<form id='signup' action='' method='post'>
+	<secion>
+		<fieldset >
+			<legend>Sign Up</legend>
+			<input type='hidden' name='submitted' id='submitted' value='1'/>
+			<label for='username'>Username:</label>
+			<input type='text' name='username' id='username' value='' maxlength="32" />
+			<br>
+			<label for='password'>Password:</label>
+			<input type='password' name='password' id='password' value='' maxlength="64" />
+			<br>
+			<input type='submit' name='Submit' value='Submit' />
+		</fieldset>
+	</secion>
+</form>
+{% endblock %}

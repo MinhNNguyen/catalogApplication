@@ -1,0 +1,34 @@
+{
+  "categories": [
+    {
+      "id": 1, 
+      "items": [], 
+      "name": "Laptop"
+    }, 
+    {
+      "id": 2, 
+      "items": [], 
+      "name": "Phone"
+    }, 
+    {
+      "id": 3, 
+      "items": [], 
+      "name": "Vehicle"
+    }, 
+    {
+      "id": 4, 
+      "items": [], 
+      "name": "Food"
+    }, 
+    {
+      "id": 5, 
+      "items": [], 
+      "name": "Book"
+    }, 
+    {
+      "id": 6, 
+      "items": [], 
+      "name": "Clothes"
+    }
+  ]
+}
