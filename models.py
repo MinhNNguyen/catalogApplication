@@ -10,7 +10,7 @@ from itsdangerous import(TimedJSONWebSignatureSerializer
 
 Base = declarative_base()
 secret_key = ''.join(random.choice(string.ascii_uppercase + string.digits)
-	for x in xrange(32))
+	for x in range(32))
 
 
 class Category(Base):

@@ -89,7 +89,7 @@ def gconnect():
   if result['issued_to'] != CLIENT_ID:
     response = make_response(
       json.dumps("Token's client ID does not match app's."), 401)
-    print "Token's client ID does not match app's."
+    print("Token's client ID does not match app's.")
     response.headers['Content-Type'] = 'application/json'
     return response
 
@@ -112,8 +112,8 @@ def gconnect():
 
   data = answer.json()
   print('Logging in:')
-  print data['name']
-  print data['email']
+  print(data['name'])
+  print(data['email'])
   session['username'] = data['name']
   session['picture'] = data['picture']
   session['email'] = data['email']
@@ -127,7 +127,7 @@ def gconnect():
   output += ' " style = "width: 300px; height: 300px;border-radius: \
    150px;-webkit-border-radius: 150px;-moz-border-radius: 150px;"> '
   flash("you are now logged in as %s" % session['username'])
-  print "done!"
+  print("done!")
   return output
 
 
@@ -136,20 +136,20 @@ def gconnect():
 def gdisconnect():
   access_token = session.get('access_token')
   if access_token is None:
-    print 'Access Token is None'
+    print('Access Token is None')
     response = make_response(json.dumps
       ('Current user not connected.'), 401)
     response.headers['Content-Type'] = 'application/json'
     return response
-  print 'In gdisconnect access token is %s', access_token
-  print 'User name is: '
-  print session['username']
+  print('In gdisconnect access token is %s', access_token)
+  print('User name is: ')
+  print(session['username'])
   url = 'https://accounts.google.com/o/oauth2/revoke?token=%s' \
     % session['access_token']
   h = httplib2.Http()
   result = h.request(url, 'GET')[0]
-  print 'result is '
-  print result
+  print('result is ')
+  print(result)
   if result['status'] == '200':
     del session['access_token']
     del session['gplus_id']
@@ -170,7 +170,7 @@ def gdisconnect():
 @app.route('/', methods = ['GET'])
 def home_page():
   if 'username' in session:
-    print session['username']
+    print(session['username'])
   categories = data_session.query(Category).all()
   items = data_session.query(Item).all()
   return render_template('home_page.html',

@@ -1,10 +1,10 @@
 --- Catalog Application
 
-A project consists of Python Flask framework, Sqlalchemy, and Vagrant to stimulate a functional website. The website would provide a list of items within a variety of categories. It would provide user registration and authentication system where after logging in, user would have the ability to post, edit, and delete their own item.
+A project consists of Python Flask framework, Sqlalchemy to stimulate a functional website. The website would provide a list of items within a variety of categories. It would provide user registration and authentication system where after logging in, user would have the ability to post, edit, and delete their own item. The project is re-configured to work with Python3, PostgreSQL, Apache2
 
 --- Motivation
 
-This project is a part of Full Stack Programming Course from Udacity
+This project is the final project for Full Stack Programming Course from Udacity
 
 --- Installing
 
@@ -18,9 +18,12 @@ Vagrant
 Flask Framwork
 SqlAlchemy
 OAuth 2.0
+PostgreSQL
+Apache2
+Python3
 
 --- Versioning
-1.1
+1.2
 
 --- Authors
 
