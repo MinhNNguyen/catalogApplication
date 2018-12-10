@@ -1,3 +1,4 @@
+"""Database setup for catalog applicaiton."""
 from sqlalchemy import Column,Integer,String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
@@ -53,7 +54,7 @@ class Item(Base):
 			'creator_email': self.creator_email
 		}
 
-
-engine = create_engine('sqlite:///itemCatalog.db')
-
-Base.metadata.create_all(engine)
+def create_database(database_url):
+   engine =  create_engine(database_url)
+   Base.metadata.create_all(engine)
+   print("Database is created")
