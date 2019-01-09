@@ -2,8 +2,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from models import Base, Category, Item
 import json
+import sys
 
-engine = create_engine('sqlite:///itemCatalog.db')
+sys.path.insert(0, "var/www/FlaskApp/catalogApplication/venv3/lib/python3.5/site-packages")
+engine = create_engine('postgresql://catalog:PASSWORD@localhost/catalog')
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
