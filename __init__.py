@@ -18,15 +18,14 @@ from oauth2client.client import FlowExchangeError
 import re, random, string, requests, json, httplib2
 
 # Global variables needed to run the application
-engine = create_engine('sqlite:///itemCatalog.db',
-  connect_args={'check_same_thread': False})
+engine = create_engine('postgresql://catalog:catalog@localhost/catalog')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 data_session = DBSession()
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 CLIENT_ID = json.loads(
-    open('client_secrets.json', 'r').read())['web']['client_id']
+    open('/var/www/catalog/catalogApplication/client_secrets.json', 'r').read())['web']['client_id']
 APPLICATION_NAME = "Catalog Application"
 
 
@@ -89,7 +88,7 @@ def gconnect():
   if result['issued_to'] != CLIENT_ID:
     response = make_response(
       json.dumps("Token's client ID does not match app's."), 401)
-    print "Token's client ID does not match app's."
+    print("Token's client ID does not match app's.")
     response.headers['Content-Type'] = 'application/json'
     return response
 
@@ -112,8 +111,8 @@ def gconnect():
 
   data = answer.json()
   print('Logging in:')
-  print data['name']
-  print data['email']
+  print(data['name'])
+  print(data['email'])
   session['username'] = data['name']
   session['picture'] = data['picture']
   session['email'] = data['email']
@@ -127,7 +126,7 @@ def gconnect():
   output += ' " style = "width: 300px; height: 300px;border-radius: \
    150px;-webkit-border-radius: 150px;-moz-border-radius: 150px;"> '
   flash("you are now logged in as %s" % session['username'])
-  print "done!"
+  print("done!")
   return output
 
 
@@ -136,20 +135,20 @@ def gconnect():
 def gdisconnect():
   access_token = session.get('access_token')
   if access_token is None:
-    print 'Access Token is None'
+    print('Access Token is None')
     response = make_response(json.dumps
       ('Current user not connected.'), 401)
     response.headers['Content-Type'] = 'application/json'
     return response
-  print 'In gdisconnect access token is %s', access_token
-  print 'User name is: '
-  print session['username']
+  print('In gdisconnect access token is %s', access_token)
+  print('User name is: ')
+  print(session['username'])
   url = 'https://accounts.google.com/o/oauth2/revoke?token=%s' \
     % session['access_token']
   h = httplib2.Http()
   result = h.request(url, 'GET')[0]
-  print 'result is '
-  print result
+  print('result is ')
+  print(result)
   if result['status'] == '200':
     del session['access_token']
     del session['gplus_id']
@@ -170,7 +169,7 @@ def gdisconnect():
 @app.route('/', methods = ['GET'])
 def home_page():
   if 'username' in session:
-    print session['username']
+    print(session['username'])
   categories = data_session.query(Category).all()
   items = data_session.query(Item).all()
   return render_template('home_page.html',
@@ -218,7 +217,7 @@ def add_item():
     if not re.match("^[a-zA-Z0-9_]*$", request.form['name']) \
      or not re.match("^[a-zA-Z0-9_,\. ]*$",
       request.form['description']):
-      print ('Item name or description contains invalid \
+      print('Item name or description contains invalid \
        special character')
       return redirect(url_for('add_item'))
     newItem = Item()
@@ -248,11 +247,11 @@ def edit_item(item_name):
   .one_or_none()
   if request.method == 'POST':
     if session['email'] != item.creator_email:
-      print ('User is not authrozized to attempt this action')
+      print('User is not authrozized to attempt this action')
       return redirect(url_for('home_page'))
     if not re.match("^[a-zA-Z0-9_]*$", request.form['name']) or not \
       re.match("^[a-zA-Z0-9_,\. ]*$", request.form['description']):
-      print ('Item name or description contains \
+      print('Item name or description contains \
        invalid special character')
       return redirect(url_for('edit_item'), item_name = item_name)
     item.name = request.form['name']
@@ -281,7 +280,7 @@ def delete_item(item_name):
   .one_or_none()
   if request.method == 'POST':
     if session['email'] != item.creator_email:
-      print ('User is not authrozized to attempt this action')
+      print('User is not authrozized to attempt this action')
       return redirect(url_for('home_page'))
     data_session.delete(item)
     data_session.commit()
