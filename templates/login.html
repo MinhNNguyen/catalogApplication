@@ -2,9 +2,8 @@
 <html>
 <head>
   <!--LOAD PRE-REQUISITES FOR GOOGLE SIGN IN -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js">
-  </script>
-  <script src="//apis.google.com/js/platform.js?onload=start"> </script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script src="//apis.google.com/js/platform.js?onload=start"></script>
 </head>
 <body>  
 <!-- GOOGLE PLUS SIGN IN-->
@@ -29,6 +28,18 @@
         // Send the one-time-use code to the server, if the server responds,
         // write a 'login successful' message to the web page and then
         // redirect back to the main restaurants page
+
+        // csrf token in ajax
+        var csrftoken = $('meta[name=csrf-token]').attr('content');
+    
+        $.ajaxSetup({
+          beforeSend: function(xhr, settings) {
+            if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type) && !this.crossDomain) {
+              xhr.setRequestHeader("X-CSRFToken", csrftoken)
+            }
+          }
+        });
+
         $.ajax({
           type: 'POST',
           url: '/gconnect?state={{STATE}}',
