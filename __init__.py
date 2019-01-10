@@ -113,8 +113,8 @@ def gconnect():
 
   data = answer.json()
   print('Logging in:')
-  print(data['name'])
-  print(data['email'])
+  print"data['name']"
+  print"data['email']"
   session['username'] = data['name']
   session['picture'] = data['picture']
   session['email'] = data['email']
