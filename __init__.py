@@ -28,6 +28,7 @@ app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 CLIENT_ID = json.loads(
     open('/var/www/catalog/catalogApplication/client_secrets.json', 'r').read())['web']['client_id']
 APPLICATION_NAME = "Catalog Application"
+Bootstrap(app)
 
 
 
