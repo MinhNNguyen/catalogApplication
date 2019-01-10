@@ -15,6 +15,7 @@ from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy import create_engine
 from oauth2client.client import flow_from_clientsecrets
 from oauth2client.client import FlowExchangeError
+from flask_bootstrap import Bootstrap
 import re, random, string, requests, json, httplib2
 
 # Global variables needed to run the application
@@ -302,7 +303,11 @@ def item_json_endpoint(item_name):
   .one_or_none()
   return jsonify(item.serialize)
 
+''' New home page template utlizing Flask-bootstrap library '''
+@app.route('/new_homepage')
+def new_homepage():
+  return render_template('new_homepage.html')
 
 if __name__ == '__main__':
   app.debug = True
-  app.run(host='0.0.0.0', port=8000)
+  app.run()
