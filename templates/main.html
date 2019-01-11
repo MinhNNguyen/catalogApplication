@@ -1,68 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-	    <meta charset="utf-8">
-		<title>Item Catalog Application</title>
-		<link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="//apis.google.com/js/platform.js?onload=start"> </script>
-	</head>
-	<body>
-		<header>
-			<div class="navbar">
-				<h2>Catalog</h2>
-			</div>
-			<div class="navbar">
-				<a href= "{{url_for('home_page')}}"><button class="navbar-button">Home Page</button></a>
-				<a href= "{{url_for('add_item')}}"><button class="navbar-button">Add Item</button></a>
-				<a href= "{{url_for('json_endpoint')}}"><button class="navbar-button">JSON</button></a>
-				{% if 'email' not in session %}
-				<a href= "{{url_for('login')}}"><button class="navbar-button">Log In</button></a>
-				{% else %}
-				<a href= "{{url_for('gdisconnect')}}"><button class="navbar-button">Log Out</button></a>		
-				{% endif %}
-			</div>	
-		</header>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Robert Nguyen">
+    <title>Movie Catalogue</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/shop-item.css') }}">
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Movie Catalogue</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            
+            <!--
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            -->
+
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('home_page')}}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('add_item')}}">Add Item</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('json_endpoint')}}">JSON</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('login')}}">Log In</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('gdisconnect')}}">Log Out</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 		<div class="container">
 			{% block content %}
 			{% endblock %}
-		</div>
-
-		<script>
-			function signInCallback(authResult) {
-  				if (authResult['code']) {
-    				// Hide the sign-in button now that the user is authorized
-    				$('#signinButton').attr('style', 'display: none');
-    				// Send the one-time-use code to the server, if the server responds, write a 'login successful' message to the web page and then redirect back to the main restaurants page
-				    $.ajax({
-				      type: 'POST',
-				      url: '/gconnect?state={{STATE}}',
-				      processData: false,
-				      data: authResult['code'],
-				      contentType: 'application/octet-stream; charset=utf-8',
-				      success: function(result) 
-				      {
-				        	// Handle or verify the server response if necessary.
-				        	if (result) 
-				        	{
-						        $('#result').html('Login Successful!</br>'+ result + '</br>Redirecting...')
-						         setTimeout(function() {
-						          window.location.href = "";
-				         		}, 4000);
-      						}
-      					 	else if (authResult['error']) {
-    							console.log('There was an error: ' + authResult['error']);
-  							}
-  						 	else 
-  							{
-        						$('#result').html('Failed to make a server-side call. Check your configuration and console.');
-         					}
-      					}
-      
-  					}); 
-				} 
-			}
-		</script>
-<!--END GOOGLE PLUS SIGN IN -->
-	</body>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Robert Nguyen 2019</p>
+      </div>
+    </footer>
+    
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{ url_for('static', filename='/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  </body>
 </html>

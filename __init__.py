@@ -17,9 +17,10 @@ from oauth2client.client import flow_from_clientsecrets
 from oauth2client.client import FlowExchangeError
 from flask_bootstrap import Bootstrap
 import re, random, string, requests, json, httplib2
+import psycopg2
 
 # Global variables needed to run the application
-engine = create_engine('postgresql://catalog:catalog@localhost/catalog')
+engine = create_engine('postgresql+psycopg2://catalog:catalog@localhost/catalog')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 data_session = DBSession()
