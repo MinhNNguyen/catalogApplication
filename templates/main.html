@@ -16,7 +16,7 @@
 				<a href= "{{url_for('home_page')}}"><button class="navbar-button">Home Page</button></a>
 				<a href= "{{url_for('add_item')}}"><button class="navbar-button">Add Item</button></a>
 				<a href= "{{url_for('json_endpoint')}}"><button class="navbar-button">JSON</button></a>
-				{% if 'username' not in session %}
+				{% if 'email' not in session %}
 				<a href= "{{url_for('login')}}"><button class="navbar-button">Log In</button></a>
 				{% else %}
 				<a href= "{{url_for('gdisconnect')}}"><button class="navbar-button">Log Out</button></a>		

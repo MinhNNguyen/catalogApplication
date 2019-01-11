@@ -143,8 +143,8 @@ def gdisconnect():
     response.headers['Content-Type'] = 'application/json'
     return response
   print('In gdisconnect access token is %s', access_token)
-  print('User name is: ')
-  print(session['username'])
+  print('User email is: ')
+  print(session['email'])
   url = 'https://accounts.google.com/o/oauth2/revoke?token=%s' \
     % session['access_token']
   h = httplib2.Http()
@@ -154,7 +154,6 @@ def gdisconnect():
   if result['status'] == '200':
     del session['access_token']
     del session['gplus_id']
-    del session['username']
     del session['email']
     del session['picture']
     response = make_response(json.dumps
@@ -170,8 +169,8 @@ def gdisconnect():
 # Display the home page
 @app.route('/', methods = ['GET'])
 def home_page():
-  if 'username' in session:
-    print(session['username'])
+  if 'email' in session:
+    print(session['email'])
   categories = data_session.query(Category).all()
   items = data_session.query(Item).all()
   return render_template('home_page.html',

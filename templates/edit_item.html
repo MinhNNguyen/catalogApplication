@@ -2,7 +2,7 @@
 {% block content %}
 <form id='login' action='' method='post'>
 	<secion>
-		{% if 'username' in session %}
+		{% if 'email' in session %}
 		<fieldset >
 			<legend>Edit Item</legend>
 			<input type='hidden' name='submitted' id='submitted' value='1'/>

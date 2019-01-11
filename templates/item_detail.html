@@ -4,7 +4,7 @@
 		<h2> {{item.name}} </h3>
 		<p> {{item.description}} </p>
 		<form id='' action='' method='post'>
-			{% if 'username' in session %}
+			{% if 'email' in session %}
 				<input type="submit" name="action" value="Update" />
 				<input type="submit" name="action" value="Delete" />
 			{% endif %}
