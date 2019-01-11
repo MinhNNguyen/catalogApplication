@@ -205,7 +205,7 @@ def item_page(cat_name, item_name):
     if request.form['action'] == 'Extract JSON':
       return redirect(url_for('item_json_endpoint', item_name = item_name))
   item = data_session.query(Item).filter_by(name = item_name).one()
-  return render_template('new_item_detail.html', item = item)
+  return render_template('item_detail.html', item = item)
 
 
 ''' Display the form to add item and progress it if there is POST
