@@ -20,7 +20,7 @@ import re, random, string, requests, json, httplib2
 import psycopg2
 
 # Global variables needed to run the application
-engine = create_engine('sqlite:///itemCatalog.db')
+engine = create_engine('postgresql+psycopg2://catalog:catalog@localhost/catalog')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 data_session = DBSession()

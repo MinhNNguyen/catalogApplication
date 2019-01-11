@@ -4,7 +4,7 @@ from models import Base, Category, Item
 import json
 import psycopg2
 
-engine = create_engine('sqlite:///itemCatalog.db')
+engine = create_engine('postgresql+psycopg2://catalog:catalog@localhost/catalog')
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
