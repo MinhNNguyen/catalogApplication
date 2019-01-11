@@ -112,23 +112,23 @@ def gconnect():
   answer = requests.get(userinfo_url, params=params)
 
   data = answer.json()
-  # print('Logging in:')
-  # print"data['name']"
-  # print"data['email']"
+  print('Logging in:')
+  # print(data['name'])
+  print(data['email'])
   # session['username'] = data['name']
-  # session['picture'] = data['picture']
-  # session['email'] = data['email']
+  session['picture'] = data['picture']
+  session['email'] = data['email']
   print(data)
   output = ''
-  # output += '<h1>Welcome, '
+  output += '<h1>Welcome, '
   # output += session['username']
-  # output += '!</h1>'
-  # output += '<img src="'
-  # output += session['picture']
-  # output += ' " style = "width: 300px; height: 300px;border-radius: \
-  #  150px;-webkit-border-radius: 150px;-moz-border-radius: 150px;"> '
-  # flash("you are now logged in as %s" % session['username'])
-  # print("done!")
+  output += '!</h1>'
+  output += '<img src="'
+  output += session['picture']
+  output += ' " style = "width: 300px; height: 300px;border-radius: \
+   150px;-webkit-border-radius: 150px;-moz-border-radius: 150px;"> '
+  flash("you are now logged in as %s" % session['email'])
+  print("done!")
   return output
 
 
