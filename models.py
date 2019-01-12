@@ -37,7 +37,7 @@ class Item(Base):
 	description = Column(String)
 	category_id = Column(Integer, ForeignKey('category.id'))
 	creator_email = Column(String)
-	category = relationship("Category", back_populates = "items", cascade="save-update, merge, delete")
+	category = relationship("Category", back_populates = "items", cascade="save-update, merge")
 
 	
 	def get_cat_name(self):
