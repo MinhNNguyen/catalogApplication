@@ -34,12 +34,15 @@
             <li class="nav-item">
               <a class="nav-link" href="{{url_for('json_endpoint')}}">JSON</a>
             </li>
+            {% if 'email' not in session %}
             <li class="nav-item">
               <a class="nav-link" href="{{url_for('login')}}">Log In</a>
             </li>
+            {% else %}
             <li class="nav-item">
               <a class="nav-link" href="{{url_for('gdisconnect')}}">Log Out</a>
             </li>
+            {% endif %}
           </ul>
         </div>
       </div>
