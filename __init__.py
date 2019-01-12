@@ -159,12 +159,16 @@ def gdisconnect():
     response = make_response(json.dumps
       ('Successfully disconnected.'), 200)
     response.headers['Content-Type'] = 'application/json'
-    return response
+    return redirect(url_for('home_page'))
   else:
     response = make_response(json.dumps
       ('Failed to revoke token for given user.', 400))
     response.headers['Content-Type'] = 'application/json'
-    return response
+    del session['access_token']
+    del session['gplus_id']
+    del session['email']
+    del session['picture']
+    return redirect(url_for('home_page'))
 
 # Display the home page
 @app.route('/', methods = ['GET'])
@@ -305,11 +309,6 @@ def item_json_endpoint(item_name):
   item = data_session.query(Item).filter_by(name = item_name) \
   .one_or_none()
   return jsonify(item.serialize)
-
-''' New home page template utlizing Flask-bootstrap library '''
-@app.route('/new_homepage')
-def new_homepage():
-  return render_template('new_homepage.html')
 
 if __name__ == '__main__':
   app.debug = True
