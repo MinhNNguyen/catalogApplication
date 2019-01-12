@@ -183,7 +183,7 @@ def home_page():
 def category_page(cat_name):
   category = data_session.query(Category).filter_by \
     (name = cat_name).one_or_none()
-  return render_template('category_page.html',
+  return render_template('category_page.html', category = category,
    items = category.items)
 
 
