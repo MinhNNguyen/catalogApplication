@@ -1,42 +1,36 @@
 {
   "items": [
     {
-      "id": 1, 
       "name": "Dell XPS15 2018",
       "description": "One of the best laptop being produced in 2018",
       "category_id": 1,
       "creator_email": "admin@gmail.com"
     }, 
     {
-      "id": 2, 
       "name": "Mac Book Air 2018",
       "description": "The 2018 version of the Mac Book, looks like it might have some performance issue",
       "category_id": 1,
       "creator_email": "admin@gmail.com"
     }, 
     {
-      "id": 3, 
       "name": "iPhone 10",
       "description": "The newest version of Apple iPhone with the face detection",
       "category_id": 2,
       "creator_email": "admin@gmail.com"
     }, 
     {
-      "id": 4, 
       "name": "Samsung Galaxy S9",
       "description": "The main competitor of iPhone by Samsung with the beautiful curvy edge and useless button",
       "category_id": 2,
       "creator_email": "admin@gmail.com"
     }, 
     {
-      "id": 5, 
       "name": "Tesla Model S",
       "description": "High end electric car with stunning interior design",
       "category_id": 3,
       "creator_email": "admin@gmail.com"
     }, 
     {
-      "id": 6, 
       "name": "Toyota Camry XL 2018",
       "description": "The 2018 verison of one of the most popular car model by Toyota with the upgrade in how it looks",
       "category_id": 3,

@@ -222,7 +222,6 @@ def add_item():
        special character')
       return redirect(url_for('add_item'))
     newItem = Item()
-    newItem.id = data_session.query(func.max(Item)) + 1
     newItem.name = request.form['name']
     newItem.description = request.form['description']
     newItem.creator_email = session['email']

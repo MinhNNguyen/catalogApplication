@@ -1,34 +1,28 @@
 {
   "categories": [
     {
-      "id": 1, 
       "items": [], 
-      "name": "Laptop"
+      "name": "Comedy"
+    }, 
+    { 
+      "items": [], 
+      "name": "Romance"
     }, 
     {
-      "id": 2, 
       "items": [], 
-      "name": "Phone"
+      "name": "History"
     }, 
     {
-      "id": 3, 
       "items": [], 
-      "name": "Vehicle"
+      "name": "Animation"
     }, 
     {
-      "id": 4, 
       "items": [], 
-      "name": "Food"
+      "name": "Horror"
     }, 
     {
-      "id": 5, 
       "items": [], 
-      "name": "Book"
-    }, 
-    {
-      "id": 6, 
-      "items": [], 
-      "name": "Clothes"
+      "name": "Action"
     }
   ]
 }
