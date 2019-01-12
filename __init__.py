@@ -12,10 +12,9 @@ from flask import (Flask,
                    flash)
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
-from sqlalchemy import create_engine, func
+from sqlalchemy import create_engine
 from oauth2client.client import flow_from_clientsecrets
 from oauth2client.client import FlowExchangeError
-from flask_bootstrap import Bootstrap
 import re, random, string, requests, json, httplib2
 
 # Global variables needed to run the application
@@ -28,7 +27,6 @@ app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 CLIENT_ID = json.loads(
     open('/var/www/catalog/catalogApplication/client_secrets.json', 'r').read())['web']['client_id']
 APPLICATION_NAME = "Catalog Application"
-Bootstrap(app)
 
 
 
@@ -121,7 +119,7 @@ def gconnect():
   print(data)
   output = ''
   output += '<h1>Welcome, '
-  # output += session['username']
+  output += session['email']
   output += '!</h1>'
   output += '<img src="'
   output += session['picture']
