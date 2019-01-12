@@ -1,38 +1,50 @@
 {
   "items": [
     {
-      "name": "Dell XPS15 2018",
-      "description": "One of the best laptop being produced in 2018",
+      "name": "Bumblebee (2018)",
+      "description": "On the run in the year of 1987, Bumblebee finds refuge in a junkyard in a small Californian beach town. Charlie, on the cusp of turning 18 and trying to find her place in the world, discovers Bumblebee, battle-scarred and broken.",
       "category_id": 1,
       "creator_email": "admin@gmail.com"
     }, 
     {
-      "name": "Mac Book Air 2018",
-      "description": "The 2018 version of the Mac Book, looks like it might have some performance issue",
+      "name": "Aquaman (2018)",
+      "description": "Arthur Curry learns that he is the heir to the underwater kingdom of Atlantis, and must step forward to lead his people and be a hero to the world.",
       "category_id": 1,
       "creator_email": "admin@gmail.com"
     }, 
     {
-      "name": "iPhone 10",
-      "description": "The newest version of Apple iPhone with the face detection",
+      "name": "A Star Is Born (2018)",
+      "description": "A musician helps a young singer find fame, even as age and alcoholism send his own career into a downward spiral.",
+      "category_id": 6,
+      "creator_email": "admin@gmail.com"
+    }, 
+    {
+      "name": "Perfect Strangers (2017)",
+      "description": "Seven friends gather for dinner and decide to play a game in which all incoming messages and calls will be on display for the entire group, leading to a series of revelations that gradually unravels their 'normal' lives.",
+      "category_id": 4,
+      "creator_email": "admin@gmail.com"
+    }, 
+    {
+      "name": "The Mule (2018)",
+      "description": "A 90-year-old horticulturist and Korean War veteran is caught transporting $3 million worth of cocaine through Illinois for a Mexican drug cartel.",
+      "category_id": 7,
+      "creator_email": "admin@gmail.com"
+    }, 
+    {
+      "name": "The Grinch (2018)",
+      "description": "A grumpy Grinch plots to ruin Christmas for the village of Whoville.",
       "category_id": 2,
       "creator_email": "admin@gmail.com"
     }, 
     {
-      "name": "Samsung Galaxy S9",
-      "description": "The main competitor of iPhone by Samsung with the beautiful curvy edge and useless button",
-      "category_id": 2,
+      "name": "Fantastic Beasts: The Crimes of Grindelwald (2018)",
+      "description": "The second installment of the Fantastic Beasts series featuring the adventures of Magizoologist Newt Scamander.",
+      "category_id": 5,
       "creator_email": "admin@gmail.com"
     }, 
     {
-      "name": "Tesla Model S",
-      "description": "High end electric car with stunning interior design",
-      "category_id": 3,
-      "creator_email": "admin@gmail.com"
-    }, 
-    {
-      "name": "Toyota Camry XL 2018",
-      "description": "The 2018 verison of one of the most popular car model by Toyota with the upgrade in how it looks",
+      "name": "Green Book (2018)",
+      "description": "A working-class Italian-American bouncer becomes the driver of an African-American classical pianist on a tour of venues through the 1960s American South.",
       "category_id": 3,
       "creator_email": "admin@gmail.com"
     }

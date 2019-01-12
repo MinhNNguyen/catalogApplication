@@ -2,27 +2,31 @@
   "categories": [
     {
       "items": [], 
-      "name": "Comedy"
+      "name": "Action"
     }, 
     { 
+      "items": [], 
+      "name": "Animation"
+    },
+    {
+      "items": [], 
+      "name": "Biography"
+    }, 
+    {
+      "items": [], 
+      "name": "Comedy"
+    }, 
+    {
+      "items": [], 
+      "name": "Fantasy"
+    }, 
+    {
       "items": [], 
       "name": "Romance"
     }, 
     {
       "items": [], 
-      "name": "History"
-    }, 
-    {
-      "items": [], 
-      "name": "Animation"
-    }, 
-    {
-      "items": [], 
-      "name": "Horror"
-    }, 
-    {
-      "items": [], 
-      "name": "Action"
+      "name": "Thriller"
     }
   ]
 }
