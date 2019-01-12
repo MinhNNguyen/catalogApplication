@@ -283,10 +283,11 @@ def delete_item(item_name):
     if session['email'] != itemToDelete.creator_email:
       print('User is not authrozized to attempt this action')
       return redirect(url_for('home_page'))
+    print(itemToDelete)
     data_session.delete(itemToDelete)
     data_session.commit()
     return redirect(url_for('home_page'))
-  return render_template('delete_item.html', item = item)
+  return render_template('delete_item.html', item = itemToDelete)
 
 
 ''' Generate the JSON for the whole categories of list of items
