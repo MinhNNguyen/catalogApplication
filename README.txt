@@ -1,27 +1,21 @@
---- Catalog Application
+## Movie Catalog Application
 
-A project consists of Python Flask framework, Sqlalchemy, and Vagrant to stimulate a functional website. The website would provide a list of items within a variety of categories. It would provide user registration and authentication system where after logging in, user would have the ability to post, edit, and delete their own item.
+The base movie catalog application was first implemented in Vagrant virtual machine using Python Flask framework, SQLAlchemy, Bootstrap, and SQLite database.
+Installation of a Linux distribution on a virtual machine and host movie catalogue web application. This includes installing updates, configuring web and Postgresql database server, and implmenting securities against certain attack risks.
 
---- Motivation
+EC2 URL is: http://ec2-54-184-72-93.us-west-2.compute.amazonaws.com/
 
-This project is a part of Full Stack Programming Course from Udacity
+## Built With
 
---- Installing
-
-1. Install Vagrant and VirtualBox
-2. Run views.py file to launch the application
-3. Run populate_database.py to populate the database
-
---- Built With
-
+Linux
+Apache2
 Vagrant
+PostgreSQL
 Flask Framwork
-SqlAlchemy
+SQLAlchemy
+Bootstrap
 OAuth 2.0
 
---- Versioning
-1.1
-
---- Authors
+## Authors
 
 Robert Nguyen
