@@ -7,6 +7,9 @@
 			<h1 class="my-4">Genre</h1>
 			<div class="list-group">
 				{% for category in categories %}
+					{% ifequal category.id currentCategory.id %}
+					  Hello
+					{% endifequal %}
 					<a href= "{{ url_for('category_page', cat_name = category.name) }}" class="list-group-item">{{ category.name }}</a>
 				{% endfor %}
 				<!-- <a href="#" class="list-group-item active">Category 1</a> -->

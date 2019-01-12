@@ -181,10 +181,13 @@ def home_page():
   @cat_name: unique name of the category '''
 @app.route('/catalog/<string:cat_name>/items')
 def category_page(cat_name):
-  category = data_session.query(Category).filter_by \
+  currentCategory = data_session.query(Category).filter_by \
     (name = cat_name).one_or_none()
-  return render_template('category_page.html', category = category,
-   items = category.items)
+  categories = data_session.query(Category).all()
+  return render_template('category_page.html',
+   currentCategory = currentCategory,
+   categories = categories,
+   items = currentCategory.items)
 
 
 ''' Display detail of each item, allow logged in user 
