@@ -277,13 +277,13 @@ def edit_item(item_name):
 @app.route('/catalog/<string:item_name>/delete',
  methods=['GET', 'POST'])
 def delete_item(item_name):
-  item = data_session.query(Item).filter_by(name = item_name) \
+  itemToDelete = data_session.query(Item).filter_by(name = item_name) \
   .one_or_none()
   if request.method == 'POST':
-    if session['email'] != item.creator_email:
+    if session['email'] != itemToDelete.creator_email:
       print('User is not authrozized to attempt this action')
       return redirect(url_for('home_page'))
-    data_session.delete(item)
+    data_session.delete(itemToDelete)
     data_session.commit()
     return redirect(url_for('home_page'))
   return render_template('delete_item.html', item = item)
