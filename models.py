@@ -4,7 +4,6 @@ from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy import create_engine
 from passlib.apps import custom_app_context as pwd_context
 import random, string
-import psycopg2
 from itsdangerous import(TimedJSONWebSignatureSerializer 
 	as Serializer, BadSignature, SignatureExpired)
 
@@ -55,6 +54,6 @@ class Item(Base):
 		}
 
 
-engine = create_engine('postgresql+psycopg2://catalog:catalog@localhost/catalog')
+engine = create_engine('postgresql://catalog:catalog@localhost/catalog')
 
 Base.metadata.create_all(engine)
