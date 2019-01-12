@@ -283,10 +283,9 @@ def delete_item(item_name):
     if session['email'] != itemToDelete.creator_email:
       print('User is not authrozized to attempt this action')
       return redirect(url_for('home_page'))
-    output = itemToDelete
-    data_session.delete(itemToDelete)
-    data_session.commit()
-    return output
+    # data_session.delete(itemToDelete)
+    # data_session.commit()
+    return jsonify(itemToDelete.serialize)
     # return redirect(url_for('home_page'))
   return render_template('delete_item.html', item = itemToDelete)
 
